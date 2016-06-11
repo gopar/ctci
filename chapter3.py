@@ -1,5 +1,6 @@
 from collections import deque
 
+
 def prob3_2():
     """
     Design a stack which, in addition to push and pop, also has a function min
