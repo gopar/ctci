@@ -64,7 +64,7 @@ def prob1_6(matrix, n):
     Can you do this in place?
     """
     # Book answer :(
-    for layer in range(n / 2):
+    for layer in range(n // 2):
         first = layer
         last = n - 1 - layer
         for i in range(first, last):
