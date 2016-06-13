@@ -1,13 +1,13 @@
 import chapter4
+from utils import TreeNode
 
 
 def test_chapter4_1():
-    Node = chapter4.Node
-    root = Node(0, Node(1), Node(2))
+    root = TreeNode(0, TreeNode(1), TreeNode(2))
 
     assert chapter4.prob4_1(root) is True
 
-    uneven = Node(3, Node(8, Node(9)))
+    uneven = TreeNode(3, TreeNode(8, TreeNode(9)))
     assert chapter4.prob4_1(uneven) is False
 
 
@@ -34,8 +34,7 @@ def test_chapter4_3():
 
 # TODO: Parametrize
 def test_chapter4_4():
-    Node = chapter4.Node
-    tree = Node('A', Node('B'), Node('C'))
+    tree = TreeNode('A', TreeNode('B'), TreeNode('C'))
 
     result = chapter4.prob4_4()(tree)
     _list = ['A', 'B', 'C']
@@ -49,3 +48,7 @@ def test_chapter4_4():
             i += 1
 
     assert len(result) == 2
+
+
+# def test_chapter4_5():
+#     def is_binary_tree_a_binary_search_tree(root, parent=None):

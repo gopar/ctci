@@ -1,7 +1,4 @@
-class Node:
-    def __init__(self, data, next=None):
-        self.data = data
-        self.next = next
+from utils import ListNode
 
 
 def prob2_1(root):
@@ -117,10 +114,10 @@ def prob2_5(n1, n2):
         final.append(tmp)
         answer = answer // 10
 
-    root = Node(final.pop(0))
+    root = ListNode(final.pop(0))
     node = root
     while final:
-        node.next = Node(final.pop(0))
+        node.next = ListNode(final.pop(0))
         node = node.next
 
     return root

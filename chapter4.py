@@ -1,15 +1,4 @@
-class Node:
-    def __init__(self, data, left=None, right=None):
-        self.data = data
-        self.left = left
-        self.right = right
-
-
-class ListNode:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.prev = None
+from utils import TreeNode, ListNode
 
 
 def prob4_1(root):
@@ -59,7 +48,7 @@ def prob4_3():
         if end < start:
             return None
         middle = (start + end) // 2
-        root = Node(array[middle])
+        root = TreeNode(array[middle])
 
         root.left = create_binary_search_tree(array, start, middle - 1)
         root.right = create_binary_search_tree(array, middle + 1, end)
@@ -91,7 +80,7 @@ def prob4_4():
     return binary_tree_to_linked_list
 
 if __name__ == '__main__':
-    tree = Node('A', Node('B'), Node('C'))
+    tree = TreeNode('A', TreeNode('B'), TreeNode('C'))
     result = prob4_4()(tree)
 
     for node in result:

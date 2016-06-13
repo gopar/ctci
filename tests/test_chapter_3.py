@@ -31,7 +31,6 @@ def test_chapter3_3():
     assert len(setOfStacks) == 2
 
 
-# TODO: Parametrize
 def test_chapter3_5():
     myQueue = chapter3.prob3_5()()
 
@@ -42,7 +41,6 @@ def test_chapter3_5():
         assert myQueue.pop() == index
 
 
-# TODO: Parametrize
 def test_chapter3_6():
     stack = [5, 4, 3]
     new_stack = chapter3.prob3_6(stack)
@@ -52,7 +50,6 @@ def test_chapter3_6():
         assert stack.pop() == new_stack.pop()
 
 
-# TODO: Parametrize
 def test_chapter3_7():
     AnimalShelter, Cat, Dog = chapter3.prob3_7()
 
