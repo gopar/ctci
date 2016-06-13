@@ -1,5 +1,10 @@
+import pytest
+
 import chapter4
 from utils import TreeNode
+
+FIVE_ONE_TEN = (5, 1, 10)
+FIVE_ZERO_TWENTY = (5, 0, 20)
 
 
 def test_chapter4_1():
@@ -50,5 +55,29 @@ def test_chapter4_4():
     assert len(result) == 2
 
 
-# def test_chapter4_5():
-#     def is_binary_tree_a_binary_search_tree(root, parent=None):
+@pytest.mark.parametrize("root,left,right", [
+    FIVE_ONE_TEN,
+    FIVE_ZERO_TWENTY,
+])
+def test_chapter4_5(root, left, right):
+    tree = TreeNode(root, TreeNode(left), TreeNode(right))
+    result = chapter4.prob4_5(tree)
+
+    assert result is True
+
+    tree = TreeNode(root, TreeNode(right), TreeNode(left))
+    result = chapter4.prob4_5(tree)
+
+    assert result is False
+
+
+@pytest.mark.parametrize("root,left,right,parent", [
+    FIVE_ONE_TEN + (100, ),
+    FIVE_ZERO_TWENTY + (200, ),
+])
+def test_chapter4_8(root, left, right, parent):
+    tree = TreeNode(root, TreeNode(left), TreeNode(right))
+    root = TreeNode(parent)
+    root.left = tree
+
+    assert chapter4.prob4_8(root, tree) is True
