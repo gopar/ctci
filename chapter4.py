@@ -98,6 +98,8 @@ def prob4_5(root):
     array = is_tree_a_binary_search_tree(root)
     return array == sorted(array)
 
+# TODO: Problems 4.6, 4.7 and 4.9
+
 
 def prob4_8(T1, T2):
     """
