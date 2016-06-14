@@ -1,21 +1,31 @@
+import pytest
+
 import chapter1
 
-
-def test_chapter1_1():
-    s = '12345'
-    assert chapter1.prob1_1(s) is True
-    assert chapter1.prob1_1(s + '1') is False
+ONE_THROUGH_FIVE = '12345'
 
 
-def test_chapter1_2():
-    s = '12345'
-    assert '54321' == chapter1.prob1_2(s)
-    assert s != chapter1.prob1_2(s)
+@pytest.mark.parametrize('s,expected', [
+    (ONE_THROUGH_FIVE, True),
+    (ONE_THROUGH_FIVE + '1', False),
+    ('0' * 300, False),
+])
+def test_chapter1_1(s, expected):
+    assert chapter1.prob1_1(s) is expected
 
 
-def test_chapter1_3():
-    s1 = '54321'
-    s2 = '12345'
+@pytest.mark.parametrize('s,expected', [
+    (ONE_THROUGH_FIVE, ONE_THROUGH_FIVE[::-1]),
+    ('1', '1'),
+])
+def test_chapter1_2(s, expected):
+    assert chapter1.prob1_2(s) == expected
+
+
+@pytest.mark.parametrize('s1,s2', [
+    (ONE_THROUGH_FIVE, ONE_THROUGH_FIVE[::-1]),
+])
+def test_chapter1_3(s1, s2):
     assert chapter1.prob1_3(s1, s2) is True
     assert chapter1.prob1_3(s1, s1) is True
     assert chapter1.prob1_3(s2, s2) is True
@@ -44,13 +54,16 @@ def test_chapter1_6():
     assert output == chapter1.prob1_6(matrix, 2)
 
 
-def test_chapter1_7():
-    matrix = [[0, 1],
-              [1, 0]]
-    output = [[0, 0],
-              [0, 0]]
-
-    assert output == chapter1.prob1_7(matrix)
+@pytest.mark.parametrize('matrix,expected', [
+    ([[0, 1],
+      [1, 0]], [[0, 0],
+                [0, 0]]),
+    ([[0, 1, 1],
+      [1, 0, 1]], [[0, 0, 0],
+                   [0, 0, 0]])
+])
+def test_chapter1_7(matrix, expected):
+    assert expected == chapter1.prob1_7(matrix)
 
 
 def test_chapter1_8():

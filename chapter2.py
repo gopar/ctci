@@ -105,7 +105,7 @@ def prob2_5(n1, n2):
         n2 = n2.next
 
     answer = sum(left) + sum(right)
-    if answer == []:
+    if len(left) == len(right) == 0:
         return None
 
     final = []

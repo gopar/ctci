@@ -21,6 +21,17 @@ def prob9_1(steps, possible_ways=0, cache={}):
     return cache[steps]
 
 
+def prob9_3(array, index=0):
+    """
+    A magic index in an array A[0...n] is defined to be an index
+    such that A[i] = i. Write a method to check if array meets this.
+    """
+    if index + 1 > len(array):
+        return True
+    return array[index] == index and prob9_3(array, index + 1)
+
+
 if __name__ == '__main__':
-    print(prob9_1(3))
-    print(prob9_1(4))
+    print(prob9_3([0]))
+    print(prob9_3([0, 1, 90]))
+    print(prob9_3([0, 1, 2]))

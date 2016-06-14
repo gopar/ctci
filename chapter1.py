@@ -103,8 +103,7 @@ def prob1_7(matrix):
     # Update rows and colums
     for row in range(len(matrix)):
         if row in rows:
-            matrix[row] = [0] * len(matrix)
-            continue  # No need to update cols to 0 in this row
+            matrix[row] = [0] * len(matrix[0])
         for col in cols:
             matrix[row][col] = 0
 

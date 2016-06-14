@@ -33,6 +33,8 @@ def test_chapter2_3():
         assert 'c' != node.data
         node = node.next
 
+    assert chapter2.prob2_3(None) is None
+
 
 def test_chapter2_4():
     node = ListNode(5, ListNode(4, ListNode(3, ListNode(2, ListNode(1)))))
@@ -46,6 +48,7 @@ def test_chapter2_4():
         node = node.next
 
     assert output == answer
+    assert chapter2.prob2_4(None, 0) is None
 
 
 def test_chapter2_5():
@@ -60,3 +63,5 @@ def test_chapter2_5():
         assert node.data == output.data
         node = node.next
         output = output.next
+
+    assert chapter2.prob2_5(None, None) is None

@@ -1,2 +1,5 @@
+# For testing
 py==1.4.31
 pytest==2.9.2
+coverage==4.1
+pytest-cov==2.2.1
