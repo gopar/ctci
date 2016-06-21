@@ -15,6 +15,19 @@ def test_chapter9_1(step, expect):
     assert result == expect
 
 
+@pytest.mark.parametrize('xy, expect', [
+    ((1, 0), 1),
+    ((0, 0), 0),
+    ((0, 3), 1),
+    ((0, 5), 1),
+    ((1, 1), 2),
+    ((1, 2), 3),
+])
+def test_chapter9_2(xy, expect):
+    result = chapter9.prob9_2(xy)
+    assert result == expect
+
+
 @pytest.mark.parametrize('array, expect', [
     ([0, 1, 2, 3], True),
     ([0], True),

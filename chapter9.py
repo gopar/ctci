@@ -21,6 +21,28 @@ def prob9_1(steps, possible_ways=0, cache={}):
     return cache[steps]
 
 
+def prob9_2(xy, curr_xy=(0, 0)):
+    """
+    A robot is sitting on the upper left corner of an X by Y grid.
+    The robot can only move in two directions: right and down.
+    How many possible paths are there for the robot to go from (0,0) to (X,Y)?
+    """
+    def calc_robot_steps(xy, curr_xy):
+        if xy == curr_xy:
+            return 1
+
+        result = 0
+        if curr_xy[0] < xy[0]:
+            result += calc_robot_steps(xy, (curr_xy[0] + 1, curr_xy[1]))
+        if curr_xy[1] < xy[1]:
+            result += calc_robot_steps(xy, (curr_xy[0], curr_xy[1] + 1))
+        return result
+
+    if xy == curr_xy:
+        return 0
+    return calc_robot_steps(xy, curr_xy)
+
+
 def prob9_3(array, index=0):
     """
     A magic index in an array A[0...n] is defined to be an index
